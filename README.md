@@ -1,5 +1,4 @@
-<img width="480" height="468" alt="demo(1)" src="https://github.com/user-attachments/assets/8d0c2d86-eb20-48d1-957a-061131e8c134" /><img width="336" height="336" alt="695595104984063189(1)" src="https://github.com/user-attachments/assets/b88ad8c8-ddd9-4cb0-9a06-6ea8ddcaddfa" />
-
+<img width="336" height="336" alt="695595104984063189(1)" src="https://github.com/user-attachments/assets/c22a678b-ddfa-4112-a67e-e01e01fab9a7" />
 
 
 # AI-ассистент для поиска музыки, фильмов и сериалов
