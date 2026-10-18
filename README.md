@@ -1,4 +1,4 @@
-<img width="336" height="336" alt="695595104984063189(1)" src="https://github.com/user-attachments/assets/b88ad8c8-ddd9-4cb0-9a06-6ea8ddcaddfa" />
+<img width="480" height="468" alt="demo(1)" src="https://github.com/user-attachments/assets/8d0c2d86-eb20-48d1-957a-061131e8c134" /><img width="336" height="336" alt="695595104984063189(1)" src="https://github.com/user-attachments/assets/b88ad8c8-ddd9-4cb0-9a06-6ea8ddcaddfa" />
 
 
 
@@ -25,7 +25,25 @@ AI-ассистент для поиска музыки, фильмов и сер
 2. AI-обработка и рекомендации;
 3. Поиск и работа с данными.
 
-<img width="480" height="468" alt="demo(1)" src="https://github.com/user-attachments/assets/aa7fe945-3167-454b-a703-5931a49429a1" />
+
+
+
+
+
+
+
+
+
+https://github.com/user-attachments/assets/d15b0be5-5f9c-4477-b7b6-75e6918e27b4
+
+
+
+
+
+
+
+
+
 
 ## Лицензия
 
