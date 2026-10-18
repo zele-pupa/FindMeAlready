@@ -13,7 +13,8 @@ AI-ассистент для поиска музыки, фильмов и сер
 ## Интеллектуальная карта
 построена с помощью [IOctopus](https://mind-map-online.ru/)
 
-<img width="1280" height="726" alt="5380019156624810725" src="https://github.com/user-attachments/assets/7f4598fe-b2a7-44a6-9a71-953e1d58687e" />
+<img width="2560" height="1452" alt="5380019156624810725(1)" src="https://github.com/user-attachments/assets/d083146b-5970-40f0-abb2-f18aae0a661e" />
+
 
 
 ## Используемые технологии:
