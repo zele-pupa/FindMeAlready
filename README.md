@@ -25,8 +25,7 @@ AI-ассистент для поиска музыки, фильмов и сер
 2. AI-обработка и рекомендации;
 3. Поиск и работа с данными.
 
-<img width="585" height="570" alt="demo" src="https://github.com/user-attachments/assets/97904d9d-afd7-4653-b1f0-e7efd3bf2d81" />
-
+<img width="480" height="468" alt="demo(1)" src="https://github.com/user-attachments/assets/aa7fe945-3167-454b-a703-5931a49429a1" />
 
 ## Лицензия
 
