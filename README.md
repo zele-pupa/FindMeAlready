@@ -70,7 +70,8 @@ AI-ассистент для поиска музыки, фильмов и сер
 
 ## Выступления
 
-- [первичная презентация](presentation/AI_assistant.pptx)
+- [первичная презентация](https://github.com/user-attachments/files/33631163/FindMeAlready.pptx)
+
 
 
 ## Используемые технологии:
