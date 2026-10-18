@@ -1,3 +1,6 @@
+<img width="736" height="736" alt="695595104984063189" src="https://github.com/user-attachments/assets/3f3407c2-ee47-487c-902d-a35db1ef6bb6" />
+
+
 # AI-ассистент для поиска музыки, фильмов и сериалов
 
 ## Описание
