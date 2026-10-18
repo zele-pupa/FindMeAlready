@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI-ассистент для поиска музыки, фильмов и сериалов</title>
+<meta name="description" content="Опишите настроение, сюжет или мелодию обычными словами — ассистент подберёт музыку, фильмы и сериалы.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Russo+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --y:#FCEE0A; --k:#000; --c:#00F0FF; --r:#FF003C; --t:#EDEDED; --dim:#9A9A9A;
+  --cut:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,20px 100%,0 calc(100% - 20px));
+  --display:'Russo One','Arial Black',Impact,sans-serif;
+  --body:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--k);color:var(--t);font:400 17px/1.6 var(--body);
+  background-image:linear-gradient(rgba(252,238,10,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(252,238,10,.05) 1px,transparent 1px);
+  background-size:48px 48px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--c);outline-offset:3px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+
+/* nav */
+header{border-bottom:2px solid var(--y);background:var(--k);position:sticky;top:0;z-index:5}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font:400 20px var(--display);color:var(--y);text-decoration:none;letter-spacing:.02em}
+nav{display:flex;gap:28px;align-items:center}
+nav a{text-decoration:none;font-size:15px;color:var(--t)}
+nav a:hover{color:var(--y)}
+
+/* buttons */
+.btn{display:inline-block;background:var(--y);color:var(--k);font:400 17px var(--display);text-decoration:none;
+  padding:16px 34px;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));
+  transition:background .15s}
+.btn:hover{background:var(--c)}
+.btn.sm{font-size:14px;padding:10px 22px}
+.btn.ghost{background:transparent;color:var(--y);box-shadow:inset 0 0 0 2px var(--y);clip-path:none}
+.btn.ghost:hover{background:var(--y);color:var(--k)}
+
+/* hero */
+.hero{padding:88px 0 96px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+h1{font:400 clamp(38px,5.4vw,66px)/1.04 var(--display);color:var(--y);text-wrap:balance}
+.lead{margin:28px 0 36px;font-size:19px;max-width:30em;color:var(--t)}
+.actions{display:flex;gap:16px;flex-wrap:wrap}
+
+/* terminal (the one memorable element) */
+.cut{background:var(--y);clip-path:var(--cut);padding:2px}
+.cut>.in{background:var(--k);clip-path:var(--cut)}
+.term-bar{display:flex;justify-content:space-between;background:var(--y);color:var(--k);font:500 13px var(--mono);padding:8px 18px}
+.term-body{padding:22px 22px 26px;min-height:360px;font:400 15px/1.55 var(--mono)}
+.q{color:var(--c);min-height:3.2em}
+.q::after{content:"▌";color:var(--y);animation:blink 1s steps(2) infinite}
+.status{color:var(--dim);margin:14px 0 6px;min-height:1.5em}
+.res{border-left:3px solid var(--y);padding:6px 0 6px 14px;margin:12px 0}
+.res b{display:block;color:var(--y);font-weight:500}
+.res span{color:var(--t);font-size:14px}
+@keyframes blink{50%{opacity:0}}
+
+/* sections */
+section{padding:88px 0}
+h2{font:400 clamp(30px,4vw,46px)/1.1 var(--display);color:var(--y);margin-bottom:16px;text-wrap:balance}
+.sub{max-width:34em;color:var(--dim);margin-bottom:48px}
+#features{border-top:2px solid var(--y)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{clip-path:var(--cut);padding:32px 28px 36px;display:flex;flex-direction:column;gap:14px}
+.card h3{font:400 26px/1.15 var(--display)}
+.card p{font-size:16px}
+.ex{margin-top:auto;padding-top:16px;font:400 14px/1.5 var(--mono)}
+.card.fill{background:var(--y);color:var(--k)}
+.card.fill .ex{border-top:2px solid var(--k)}
+.card.line{background:var(--k);box-shadow:inset 0 0 0 2px var(--y)}
+.card.line h3{color:var(--y)}
+.card.line .ex{border-top:2px solid var(--y);color:var(--c)}
+.card.red{background:var(--r);color:var(--k)}
+.card.red .ex{border-top:2px solid var(--k)}
+
+/* faq */
+#faq{border-top:2px solid var(--y)}
+.faq{max-width:820px}
+details{border-bottom:2px solid var(--y)}
+summary{list-style:none;cursor:pointer;padding:22px 52px 22px 0;font:400 20px/1.3 var(--display);position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:6px;top:18px;font:400 30px var(--display);color:var(--y);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details[open] summary{color:var(--y)}
+details p{padding:0 0 26px;max-width:40em;color:var(--t)}
+
+/* cta + footer */
+.final{border-top:2px solid var(--y);background:var(--y);color:var(--k);text-align:left}
+.final h2{color:var(--k)}
+.final .btn{background:var(--k);color:var(--y)}
+.final .btn:hover{background:var(--c);color:var(--k)}
+footer{padding:28px 0;font:400 14px var(--mono);color:var(--dim)}
+
+@media (max-width:900px){
+  .hero{padding:56px 0 64px}
+  .hero .wrap,.grid{grid-template-columns:1fr}
+  nav a:not(.btn){display:none}
+  .term-body{min-height:340px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .q::after{animation:none}
+  .btn,summary::after{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">AI-ассистент</a>
+    <nav aria-label="Основное меню">
+      <a href="#features">Возможности</a>
+      <a href="#faq">Вопросы</a>
+      <a class="btn sm" href="#start">Попробовать</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding-top:88px">
+    <div class="wrap">
+      <div>
+        <h1>Опишите, что хотите послушать или посмотреть</h1>
+        <p class="lead">Ассистент понимает обычные слова: настроение, сюжет, обрывок мелодии, «что-то вроде того фильма, но короче». И находит музыку, фильмы и сериалы, которые подходят.</p>
+        <div class="actions">
+          <a class="btn" href="#start">Попробовать ассистента</a>
+          <a class="btn ghost" href="#features">Что он умеет</a>
+        </div>
+      </div>
+
+      <div class="cut" aria-label="Пример диалога с ассистентом">
+        <div class="in">
+          <div class="term-bar"><span id="cat">музыка</span><span>онлайн</span></div>
+          <div class="term-body" aria-live="off">
+            <div class="q" id="q"></div>
+            <div class="status" id="st"></div>
+            <div id="out"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <h2>Три вида поиска в одном месте</h2>
+      <p class="sub">Не нужно переключаться между сервисами и помнить названия. Достаточно рассказать, что вам нужно.</p>
+      <div class="grid">
+        <article class="card fill">
+          <h3>Музыка</h3>
+          <p>Находит треки и исполнителей по настроению, жанру, ситуации или похожести на то, что вы уже слушаете.</p>
+          <div class="ex">«Что-то мрачное и электронное для ночной поездки»</div>
+        </article>
+        <article class="card line">
+          <h3>Фильмы</h3>
+          <p>Подбирает кино по сюжету, атмосфере и длительности. Подойдёт, даже если вы забыли название и помните только сцену.</p>
+          <div class="ex">«Фильм про робота, который хочет стать человеком, до двух часов»</div>
+        </article>
+        <article class="card red">
+          <h3>Сериалы</h3>
+          <p>Предлагает, что смотреть дальше, и объясняет, чем сериал похож на любимые или чем отличается.</p>
+          <div class="ex">«Как «Мистер Робот», но повеселее»</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2>Частые вопросы</h2>
+      <p class="sub">Коротко о том, как пользоваться ассистентом.</p>
+      <div class="faq">
+        <details>
+          <summary>Нужно ли знать точное название?</summary>
+          <p>Нет. Опишите сюжет, жанр, настроение, актёров или мелодию своими словами. Чем больше деталей, тем точнее результат.</p>
+        </details>
+        <details>
+          <summary>Можно ли уточнять результат?</summary>
+          <p>Да. Если подборка не подошла, напишите, что изменить: «повеселее», «покороче», «без вокала». Ассистент учтёт это в следующем ответе.</p>
+        </details>
+        <details>
+          <summary>Что именно можно искать?</summary>
+          <p>Музыку, фильмы и сериалы. Можно искать по названию, жанру, настроению, сюжету или просить «что-то похожее на...».</p>
+        </details>
+        <details>
+          <summary>Почему ассистент предложил именно это?</summary>
+          <p>К каждому варианту он добавляет короткое пояснение: чем это совпадает с вашим запросом. Так проще решить, стоит ли включать.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" id="start">
+    <div class="wrap">
+      <h2>Расскажите, что ищете</h2>
+      <p class="sub" style="color:var(--k)">Первый запрос занимает несколько секунд.</p>
+      <a class="btn" href="#">Попробовать ассистента</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">AI-ассистент для поиска музыки, фильмов и сериалов</div>
+</footer>
+
+<script>
+(function(){
+  var scenes=[
+    {cat:'музыка',q:'Что-то мрачное и электронное для ночной поездки, без вокала',
+     r:[['Carpenter Brut','тяжёлый синтвейв, почти без слов'],['Perturbator','плотные басы и ночной город'],['Gunship','синты и неоновая ностальгия']]},
+    {cat:'фильмы',q:'Фильм про искусственный интеллект, который хочет стать человеком, до двух часов',
+     r:[['Призрак в доспехах (1995)','83 минуты, вопрос о том, что делает нас людьми'],['Из машины (2014)','камерная драма, около 108 минут'],['Тёмный город (1998)','неонуар про память и личность']]},
+    {cat:'сериалы',q:'Сериал вроде «Мистера Робота», но повеселее',
+     r:[['Силиконовая долина','комедия про стартап и программистов'],['Безумные IT-шники','британский юмор про техподдержку'],['Рик и Морти','чёрная научная фантастика с шутками']]}
+  ];
+  var q=document.getElementById('q'),st=document.getElementById('st'),out=document.getElementById('out'),cat=document.getElementById('cat');
+  var still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function render(s){
+    cat.textContent=s.cat; q.textContent=s.q; st.textContent='Нашёл несколько вариантов:'; out.textContent='';
+    s.r.forEach(function(x){
+      var d=document.createElement('div'); d.className='res';
+      var b=document.createElement('b'); b.textContent=x[0];
+      var p=document.createElement('span'); p.textContent=x[1];
+      d.appendChild(b); d.appendChild(p); out.appendChild(d);
+    });
+  }
+  if(still){render(scenes[0]);return;}
+
+  var i=0;
+  function sleep(ms){return new Promise(function(r){setTimeout(r,ms)});}
+  async function play(){
+    for(;;){
+      var s=scenes[i%scenes.length]; i++;
+      cat.textContent=s.cat; q.textContent=''; st.textContent=''; out.textContent='';
+      for(var n=1;n<=s.q.length;n++){q.textContent=s.q.slice(0,n);await sleep(28);}
+      await sleep(350);
+      st.textContent='Ищу...'; await sleep(700);
+      st.textContent='Нашёл несколько вариантов:';
+      for(var k=0;k<s.r.length;k++){
+        var d=document.createElement('div'); d.className='res';
+        var b=document.createElement('b'); b.textContent=s.r[k][0];
+        var p=document.createElement('span'); p.textContent=s.r[k][1];
+        d.appendChild(b); d.appendChild(p); out.appendChild(d);
+        await sleep(450);
+      }
+      await sleep(4200);
+    }
+  }
+  play();
+})();
+</script>
+</body>
+</html>
