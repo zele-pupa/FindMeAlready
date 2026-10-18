@@ -25,6 +25,9 @@ AI-ассистент для поиска музыки, фильмов и сер
 2. AI-обработка и рекомендации;
 3. Поиск и работа с данными.
 
+<img width="585" height="570" alt="demo" src="https://github.com/user-attachments/assets/97904d9d-afd7-4653-b1f0-e7efd3bf2d81" />
+
+
 ## Лицензия
 
 В данном проекте используется лицензия [MIT](https://github.com/IgorVolochay/Face-recognition-system/blob/main/LICENSE)
