@@ -1,6 +1,10 @@
 <img width="336" height="336" alt="695595104984063189(1)" src="https://github.com/user-attachments/assets/c22a678b-ddfa-4112-a67e-e01e01fab9a7" />
 
+
 [студент 4 Изменение в DOCS-FIX]
+
+[студент 4 Изменение в MAIN]
+
 # AI-ассистент для поиска музыки, фильмов и сериалов
 
 ## Описание
