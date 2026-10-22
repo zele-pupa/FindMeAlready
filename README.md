@@ -1,6 +1,5 @@
 <img width="336" height="336" alt="695595104984063189(1)" src="https://github.com/user-attachments/assets/c22a678b-ddfa-4112-a67e-e01e01fab9a7" />
 
-[студент 4 Изменение в MAIN]
 # AI-ассистент для поиска музыки, фильмов и сериалов
 
 ## Описание
@@ -72,7 +71,8 @@ AI-ассистент для поиска музыки, фильмов и сер
 
 в процессе была необходимость создания [системы управления](https://ru.yougile.com/board/dsae4m2uiaja)
 
-[доска.bmp](https://github.com/user-attachments/files/33821317/default.bmp)
+<img width="1530" height="908" alt="доска" src="https://github.com/user-attachments/assets/b485a702-2268-4c60-b185-55358ba2a113" />
+
 
 
 ## Выступления
