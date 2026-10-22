@@ -68,6 +68,13 @@ AI-ассистент для поиска музыки, фильмов и сер
 <img width="1280" height="726" alt="IMG_20261018_191636_504" src="https://github.com/user-attachments/assets/afa58735-7f77-4d95-bccf-1e75edc4e8c4" />
 
 
+## Схема управления
+
+в процессе была необходимость создания [системы управления](https://ru.yougile.com/board/dsae4m2uiaja)
+
+[доска.bmp](https://github.com/user-attachments/files/33821317/default.bmp)
+
+
 ## Выступления
 
 - [первичная презентация](https://github.com/user-attachments/files/33631163/FindMeAlready.pptx)
