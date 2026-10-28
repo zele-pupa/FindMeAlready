@@ -1,9 +1,12 @@
 <img width="336" height="336" alt="695595104984063189(1)" src="https://github.com/user-attachments/assets/c22a678b-ddfa-4112-a67e-e01e01fab9a7" />
 
 
+
 [студент 4 Изменение в DOCS-FIX]
 
 [студент 4 Изменение в MAIN]
+
+
 
 # AI-ассистент для поиска музыки, фильмов и сериалов
 
@@ -70,6 +73,14 @@ AI-ассистент для поиска музыки, фильмов и сер
 построена с помощью [IOctopus](https://mind-map-online.ru/)
 
 <img width="1280" height="726" alt="IMG_20261018_191636_504" src="https://github.com/user-attachments/assets/afa58735-7f77-4d95-bccf-1e75edc4e8c4" />
+
+
+## Схема управления
+
+в процессе была необходимость создания [системы управления](https://ru.yougile.com/board/dsae4m2uiaja)
+
+<img width="1530" height="908" alt="доска" src="https://github.com/user-attachments/assets/b485a702-2268-4c60-b185-55358ba2a113" />
+
 
 
 ## Выступления
